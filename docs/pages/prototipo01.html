@@ -36,7 +36,7 @@
                 para ele simular a partida de Very Small Size Soccer.
             </td>
             <td>
-                N
+                S
             </td>
         </tr>
         <tr>
@@ -58,6 +58,90 @@
         </tr>
     </table>
 
+
+    <h2>Serviços Python disponíveis nessa versão</h2>
+    <table>
+        <tr>
+            <th>
+                Serviço
+            </th>
+            <th>
+                Detalhes
+            </th>
+            <th>
+                Parâmetros
+            </th>
+            <th>
+                Resultado
+            </th>
+        </tr>
+        <tr>
+            <td>
+                echo
+            </td>
+            <td>
+                Retorna o parâmetro que veio para este serviço
+            </td>
+            <td>
+                a : Any
+            </td>
+            <td>
+                a : Any
+            </td>
+        </tr>
+        <tr>
+            <td>
+                get_game_info
+            </td>
+            <td>
+                Retorna o estado de jogo de acordo com o simulador VSS-SDK rodando. O objeto state recebido é primeiro transformado em um Dict, depois convertido a Json e enviado.
+            </td>
+            <td>
+                N/A
+            </td>
+            <td>
+                "ball": <br>
+                <ul>
+                    "x" : float
+                    <br>"y" : float
+                    <br>"speed_x" : float
+                    <br>"speed_y" : float
+                </ul> 
+                <br>"team_yellow": [
+                <ul> "x" : float
+                    <br>"y" : float
+                    <br>"angle" : float
+                    <br>"speed_x" : float
+                    <br>"speed_y" : float
+                    <br>"speed_angle" : float ]*3
+                </ul>
+                <br>"team_blue": [
+                <ul> "x" : float
+                    <br>"y" : float
+                    <br>"angle" : float
+                    <br>"speed_x" : float
+                    <br>"speed_y" : float
+                    <br>"speed_angle" : float ]*3
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                move_team
+            </td>
+            <td>
+                Movimenta os robôs do time que está sendo controlado pelo kernel conectado
+            </td>
+            <td>
+                [ float, float ]*3
+            </td>
+            <td>
+                N/A
+            </td>
+        </tr>
+    </table>
+
 </body>
+
 
 </html>

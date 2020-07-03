@@ -17,5 +17,5 @@ import json
     Retorno :            state : json
 """
 def get_game_info(kernel : Kernel):
-    state = state_to_dict(kernel.receive_state())
-    return json.dumps(state)
+    return state_to_dict(kernel.receive_state())
+
