@@ -9,6 +9,13 @@
 from ..vsssdk_utils.com_kernel import Kernel, state_to_dict
 import json
 
+""" Nome da função :     get_game_info
+    Intenção da função : retorna um estado de jogo dado um kernel
+    Pré-requisitos :     kernel já inicializado
+    Efeitos colaterais : recebe um estado de jogo
+    Parâmetros :         kernel : Kernel
+    Retorno :            state : json
+"""
 def get_game_info(kernel : Kernel):
     state = state_to_dict(kernel.receive_state())
     return json.dumps(state)

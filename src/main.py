@@ -9,6 +9,7 @@
 # begin-imports
 from pyscripts.webservices.server import run_aplication_server
 from pyscripts.webservices.game_info import get_game_info
+from pyscripts.webservices.move_team import move_team
 from pyscripts.vsssdk_utils.com_kernel import Kernel
 
 # end-imports
@@ -18,12 +19,17 @@ def get_this_game_info():
     global kernel
     return (get_game_info(kernel))
 
+def move_this_team(robots_moves):
+    global kernel
+    return move_team(kernel,robots_moves)
+
 # Roda um pequeno serviço de soma e subtração de dois números
 functions = {
     "echo" : (lambda s: s),
     "add" : (lambda a, b: a + b),
     "sub" : (lambda a, b: a - b),
-    "get_game_info" : get_this_game_info
+    "get_game_info" : get_this_game_info,
+    "move_team" : move_this_team,
 }
 
 run_aplication_server(functions)
