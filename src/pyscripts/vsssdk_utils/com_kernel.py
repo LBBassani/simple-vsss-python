@@ -55,16 +55,38 @@ class Kernel(object):
             debug.final_poses.append(
                     Pose(end_pose[0], end_pose[1] + end_pose[2]))
     
+    """ Nome da função :     receive_state 
+        Intenção da função : receber um state do simulador vss-sdk
+        Pré-requisitos :     simulador rodando
+        Efeitos colaterais : recebe o state atual
+        Parâmetros :         nenhum
+        Retorno :            state : State
+    """
     def receive_state(self):
         return self.state_receiver.receive_state()
     
+    """ Nome da função :     send_command 
+        Intenção da função : enviar um comando ao simulador vss-sdk
+        Pré-requisitos :     simulador rodando
+        Efeitos colaterais : envia comandos a um dos times do simulador
+                             os times movem-se com a velocidade especificada
+        Parâmetros :         rvel : List([vel1, vel2]*3)
+        Retorno :            nenhum
+    """    
     def send_command(self, rvel):
         self.command_sender.send_command(self.__build_command(rvel))
 
     def send_debug(self, robots_points):
         self.debug_sender.send_debug(self.__build_debug(robots_points))
-    
 
+    
+""" Nome da função :        state_to_dict
+    Intenção da função :    transformar um state em um dicionário python
+    Pré-requisitos :        nenhum
+    Efeitos colaterais :    nenhum
+    Parâmetros :            state : State
+    Retorno :               state : Dict
+"""
 def state_to_dict(state : State):
     dict_ball = {
         "x" : state.ball.x, 

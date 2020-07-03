@@ -9,6 +9,14 @@
 
 from ..vsssdk_utils.com_kernel import Kernel
 
+""" Nome da função :     move_team
+    Intenção da função : movimentar um time
+    Pré-requisitos :     kernel iniciado
+    Efeitos colaterais : movimenta os robôs do time que o kernel comanda
+    Parâmetros :         kernel : Kernel
+                         robots_moves : List([vel1, vel2]*3)
+    Retorno :            True
+"""
 def move_team(kernel : Kernel, robots_moves):
     kernel.send_command(robots_moves)
     return True

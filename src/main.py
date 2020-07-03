@@ -23,11 +23,9 @@ def move_this_team(robots_moves):
     global kernel
     return move_team(kernel,robots_moves)
 
-# Roda um pequeno serviço de soma e subtração de dois números
+# Roda serviços da simulação
 functions = {
     "echo" : (lambda s: s),
-    "add" : (lambda a, b: a + b),
-    "sub" : (lambda a, b: a - b),
     "get_game_info" : get_this_game_info,
     "move_team" : move_this_team,
 }
