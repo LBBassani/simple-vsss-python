@@ -1,0 +1,23 @@
+{
+  "name": "simple-vsss-python",
+  "version": "1.0.0",
+  "description": "Um time de very small size soccer construído de forma simplista (provavelmente não virará um monstro)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "VSSS/ERUS",
+  "license": "GPLv3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LBBassani/simple-vsss-python.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LBBassani/simple-vsss-python/issues"
+  },
+  "homepage": "https://github.com/LBBassani/simple-vsss-python#readme",
+  "devDependencies": {
+    "electron": "^9.0.5"
+  }
+}
