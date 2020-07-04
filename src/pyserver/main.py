@@ -21,6 +21,10 @@ def get_this_game_info():
 
 def move_this_team(robots_moves):
     global kernel
+    for i in range(len(robots_moves)):
+        robots_moves[i][0] = float(robots_moves[i][0])
+        robots_moves[i][1] = float(robots_moves[i][1])
+    print (robots_moves)
     return move_team(kernel,robots_moves)
 
 # Roda serviços da simulação
