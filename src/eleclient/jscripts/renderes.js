@@ -1,8 +1,27 @@
 
-document.getElementById("test-button").addEventListener("click",get_game_info)
+var axios = require("axios")
+
+document.getElementById("info-button").addEventListener("click",get_game_info)
+document.getElementById("move-button").addEventListener("click", () => {
+    document.getElementById("r1-vel1").disabled = true
+    document.getElementById("r1-vel2").disabled = true
+    document.getElementById("r2-vel1").disabled = true
+    document.getElementById("r2-vel2").disabled = true
+    document.getElementById("r3-vel1").disabled = true
+    document.getElementById("r3-vel2").disabled = true
+    document.getElementById("move-button").disabled = true
+
+    move_team(
+        [
+            [parseFloat(document.getElementById("r1-vel1").value), parseFloat(document.getElementById("r1-vel2").value)],
+            [parseFloat(document.getElementById("r2-vel1").value), parseFloat(document.getElementById("r2-vel2").value)],
+            [parseFloat(document.getElementById("r3-vel1").value), parseFloat(document.getElementById("r3-vel2").value)]
+        ]
+    )
+} )
+
 
 function get_game_info(){
-    var xmlhttp = new XMLHttpRequest();
     var url = "http://localhost:4002/jsonrpc"
     let request = {
         "method" : "get_game_info",
@@ -10,20 +29,37 @@ function get_game_info(){
         "jsonrpc" : "2.0",
         "id" : 0,
     }
-    xmlhttp.open("POST", url)
-    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
-    xmlhttp.send(JSON.stringify(request))
-    xmlhttp.onreadystatechange = function() { // Chama a função quando o estado mudar.
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            update_game_info(JSON.parse(xmlhttp.response))
+    
+    axios.post(url, request).then(
+        function(response){
+            update_game_info(response["data"]["result"])
         }
-    }
+    )
 
 }
 
-function update_game_info(new_info){
-    console.log(new_info)
-    let result = new_info["result"]
+function move_team(velocidades){
+    var url = "http://localhost:4002/jsonrpc"
+    let request = {
+        "method" : "move_team",
+        "params" : [velocidades],
+        "jsonrpc" : "2.0",
+        "id" : 0,
+    }
+    console.log(request)
+
+    axios.post(url, request).then( (_) => {
+        document.getElementById("r1-vel1").disabled = false
+        document.getElementById("r1-vel2").disabled = false
+        document.getElementById("r2-vel1").disabled = false
+        document.getElementById("r2-vel2").disabled = false
+        document.getElementById("r3-vel1").disabled = false
+        document.getElementById("r3-vel2").disabled = false
+        document.getElementById("move-button").disabled = false
+    } )
+}
+
+function update_game_info(result){
     document.getElementById("ball-x").innerHTML = result["ball"]["x"]
     document.getElementById("ball-y").innerHTML = result["ball"]["y"]
     document.getElementById("ball-speed-x").innerHTML = result["ball"]["speed_x"]

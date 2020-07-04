@@ -19,5 +19,8 @@
   "homepage": "https://github.com/LBBassani/simple-vsss-python#readme",
   "devDependencies": {
     "electron": "^9.0.5"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
   }
 }
