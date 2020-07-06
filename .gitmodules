@@ -1,0 +1,4 @@
+[submodule "src/pyserver/pyscripts/erus_vsssim_utils/Robot-Simulator"]
+	path = src/pyserver/pyscripts/erus_vsssim_utils/Robot-Simulator
+	url = https://github.com/LBBassani/Robot-Simulator.git
+	branch = master
