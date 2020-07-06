@@ -7,7 +7,7 @@
     Membros :               Lorena "Ino" Bassani
 """
 
-from ..vsssdk_utils.com_kernel import Kernel
+from .com_kernel import Kernel
 
 """ Nome da função :     move_team
     Intenção da função : movimentar um time

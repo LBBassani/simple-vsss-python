@@ -6,7 +6,7 @@
     Membros :               Lorena "Ino" Bassani
 """
 
-from ..vsssdk_utils.com_kernel import Kernel, state_to_dict
+from .com_kernel import Kernel, state_to_dict
 import json
 
 """ Nome da função :     get_game_info
